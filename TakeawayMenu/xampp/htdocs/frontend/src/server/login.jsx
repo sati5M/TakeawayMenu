@@ -1,0 +1,13 @@
+import { client } from '../App.jsx';
+import { DoesErrorExist } from './errorutil.jsx';
+
+export function SendLoginRequest(email, password) {
+    return client.post('/login.php', {
+        'email': email,
+        'password': password,
+    }).then((res) => {
+        return [true, res.data.user, undefined]
+    }).catch((res) => {
+        return [false, undefined, DoesErrorExist(res) && Object.values(res.response.data.errors)[0] || undefined]
+    })
+}

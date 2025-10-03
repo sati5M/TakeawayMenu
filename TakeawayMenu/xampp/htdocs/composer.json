@@ -1,0 +1,6 @@
+{
+    "require": {
+        "dibi/dibi": "^3.0",
+        "stripe/stripe-php": "^14.5"
+    }
+}
